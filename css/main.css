@@ -18,11 +18,11 @@ body {
   min-height: 100vh;
   height: auto;
   background-color: var(--dark-color);
-  overflow-y: auto; /* Habilita el scroll vertical en celulares */
+  overflow-y: auto; /* Habilita el desplazamiento vertical en celulares */
   overflow-x: hidden;
   perspective: 1000px;
   position: relative;
-  padding-bottom: 80px; /* Margen inferior holgado para que el botón no quede cortado */
+  padding-bottom: 70px;
 }
 
 #lyrics {
@@ -30,8 +30,8 @@ body {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: white;
   position: relative;
-  margin-top: 25px;
-  margin-bottom: 15px;
+  margin-top: 30px;
+  margin-bottom: 20px;
   z-index: 1;
   font-weight: bold;
   letter-spacing: 4px;
@@ -41,27 +41,27 @@ body {
 @media only screen and (max-width: 600px) {
   #lyrics {
       font-size: 14px;
-      margin-top: 15px;
+      margin-top: 20px;
       margin-bottom: 10px;
       letter-spacing: 3px;
   }
 }
 
 .titulo {
-  margin-top: 10px;
+  margin-top: 5px;
   margin-bottom: 20px;
   font-family: "Arial Narrow", Arial, sans-serif;
   color: yellow;
   position: relative;
   font-weight: bold;
-  letter-spacing: 3px;
+  letter-spacing: 6px;
   opacity: 0;
   animation: fadeIn 3s ease-in-out forwards;
   text-align: center;
   width: 90%;
   max-width: 800px;
   z-index: 5;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 @keyframes fadeIn {
@@ -75,7 +75,7 @@ body {
 
 .night {
   z-index: -1;
-  position: fixed; /* Fondo fijo para que cubra toda la pantalla al deslizar */
+  position: fixed; /* Fondo fijo que cubre toda la pantalla al deslizar */
   left: 0;
   top: 0;
   width: 100%;
@@ -116,32 +116,32 @@ body {
 }
 
 /* ==========================================
-   CENTRADO ABSOLUTO DE LAS FLORES
+   FLORES (Diseño original grande y abajo)
    ========================================== */
 .flowers {
   position: relative;
   width: 100%;
-  height: 42vh;
-  min-height: 350px;
+  height: 55vh;
+  min-height: 450px;
   display: flex;
   justify-content: center;
   align-items: flex-end;
   z-index: 10;
   margin-top: 10px;
-  transform: scale(0.75);
+  transform: scale(0.9); /* Tamaño original amplio */
 }
 
 @media only screen and (max-width: 600px) {
   .flowers {
-      transform: scale(0.70);
+      transform: scale(0.95); /* Escala ideal para celulares */
       margin-top: 5px;
-      height: 38vh;
+      height: 50vh;
   }
 }
 
 .flower {
   position: absolute;
-  bottom: 2vmin;
+  bottom: 10vmin;
   transform-origin: bottom center;
   z-index: 10;
   --fl-speed: 0.8s;
@@ -540,14 +540,14 @@ body {
 }
 
 /* ==========================================
-   ESTILOS PARA EL BOTÓN "Abrelo"
+   BOTÓN DE LA CARTA (Ubicado al final para permitir scroll)
    ========================================== */
 .seccion-boton-carta {
   position: relative;
   z-index: 25;
   width: 100%;
   max-width: 400px;
-  margin: 20px auto 30px auto;
+  margin: 25px auto 40px auto;
   text-align: center;
   display: flex;
   justify-content: center;
