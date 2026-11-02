@@ -12,46 +12,55 @@
 
 body {
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   min-height: 100vh;
   background-color: var(--dark-color);
-  overflow: hidden;
+  overflow-y: auto; /* Permite el scroll vertical en celulares */
+  overflow-x: hidden; /* Evita desbordes horizontales */
   perspective: 1000px;
+  position: relative;
+  padding-bottom: 50px;
 }
 
 #lyrics {
   font-size: 28px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: white;
-  position: absolute;
-  margin-bottom: 20%;
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 20px;
   z-index: 1;
   font-weight: bold;
   letter-spacing: 4px;
+  text-align: center;
 }
 
 @media only screen and (max-width: 600px) {
   #lyrics {
       font-size: 14px;
-      margin-bottom: 530px;
+      margin-top: 15px;
+      margin-bottom: 15px;
       letter-spacing: 3px;
   }
 }
 
 .titulo {
-  margin-bottom: 180px;
+  margin-top: 10px;
+  margin-bottom: 30px;
   font-family: "Arial Narrow", Arial, sans-serif;
   color: yellow;
-  position: absolute;
+  position: relative;
   font-weight: bold;
-  letter-spacing: 10px;
+  letter-spacing: 4px;
   opacity: 0;
   animation: fadeIn 3s ease-in-out forwards;
   text-align: center;
   width: 90%;
   max-width: 800px;
   z-index: 5;
+  font-size: 1.1rem;
 }
 
 @keyframes fadeIn {
@@ -65,12 +74,11 @@ body {
 
 .night {
   z-index: -1;
-  position: absolute;
-  left: 50%;
+  position: fixed; /* Fijo para que el fondo cubra toda la pantalla al deslizar */
+  left: 0;
   top: 0;
-  transform: translateX(-50%);
   width: 100%;
-  height: 100%;
+  height: 100vh;
   filter: blur(0.1vmin);
   background-image: radial-gradient(
       ellipse at top,
@@ -110,26 +118,29 @@ body {
    CENTRADO ABSOLUTO DE LAS FLORES
    ========================================== */
 .flowers {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%) scale(0.9);
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  min-height: 400px;
   display: flex;
   justify-content: center;
   align-items: flex-end;
   z-index: 10;
+  margin-top: 20px;
+  transform: scale(0.85);
 }
 
 @media only screen and (max-width: 600px) {
   .flowers {
-      margin-bottom: 35%;
-      transform: translateX(-50%) scale(1.0);
+      transform: scale(0.75);
+      margin-top: 10px;
+      height: 45vh;
   }
 }
 
 .flower {
   position: absolute;
-  bottom: 10vmin;
+  bottom: 2vmin;
   transform-origin: bottom center;
   z-index: 10;
   --fl-speed: 0.8s;
@@ -535,7 +546,7 @@ body {
   z-index: 25;
   width: 100%;
   max-width: 400px;
-  margin: 35px auto;
+  margin: 30px auto;
   text-align: center;
   display: flex;
   justify-content: center;
